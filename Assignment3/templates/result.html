@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Peak and Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>COVID-19 Peak and Prediction</h2>
+    <p>{{ result }}</p>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="COVID-19 Time Series Plot with Prediction">
+    <a href="/">Search Again</a>
+</body>
+</html>

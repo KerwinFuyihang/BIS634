@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Peak Finder</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Find the Peak Date of COVID-19 Cases for a U.S. State</h2>
+    <form action="/result" method="POST">
+        <label for="state">Enter State Name:</label>
+        <input type="text" id="state" name="state" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
