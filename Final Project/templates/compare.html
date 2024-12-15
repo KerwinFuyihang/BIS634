@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare AQI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        h1, label {
+            margin-top: 20px;
+            color: white;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-control, .form-select {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+        }
+
+        .alert-danger {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: white;
+            border: 1px solid red;
+        }
+
+        .back-to-home-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Home Button -->
+    <a href="/" class="btn btn-primary btn-lg back-to-home-btn">Back to Home</a>
+
+    <div class="container text-center">
+        <h1>Compare Air Quality Index (AQI)</h1>
+        <form method="POST" action="/compare">
+            <div class="mb-3">
+                <label for="city1" class="form-label">City 1</label>
+                <input type="text" class="form-control" id="city1" name="city1" placeholder="Enter the first city" required>
+            </div>
+            <div class="mb-3">
+                <label for="city2" class="form-label">City 2</label>
+                <input type="text" class="form-control" id="city2" name="city2" placeholder="Enter the second city" required>
+            </div>
+            <div class="mb-3">
+                <label for="time_range" class="form-label">Select Time Range</label>
+                <select class="form-select" id="time_range" name="time_range" required>
+                    <option value="7">Past 7 Days</option>
+                    <option value="15">Past 15 Days</option>
+                    <option value="30">Past 30 Days</option>
+                    <option value="60">Past 60 Days</option>
+                    <option value="90">Past 90 Days</option>
+                </select>
+            </div>
+            {% if error_message %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary btn-lg">Compare</button>
+        </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
